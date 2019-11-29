@@ -1,0 +1,35 @@
+<html>
+
+<head></head>
+
+<body>
+  <div>
+    Votre peerId:
+    <div id="peerId"></div>
+  </div>
+  <div>
+    Joueurs connectés:
+    <div id="players"></div>
+  </div>
+  <div id="form">
+    Se connecter à
+    <input id="hostId" type="text">
+    <button onclick="connect()">Connexion</button>
+    <button onclick="host()">Héberger</button>
+  </div>
+  <div id="ping">
+    <button onclick="ping()">PING</button>
+  </div>
+  <div>le chat
+    <div id="chat" style="border: 1px solid black; height: 200px; width: 200px;"></div>
+  </div>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/peerjs@0.3.20/dist/peer.min.js"></script>
+
+  <script src="index.js"></script>
+  <script src="server.js"></script>
+  <script src="client.js"></script>
+</body>
+
+</html>
