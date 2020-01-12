@@ -1,8 +1,7 @@
 var conns = [];
 
-
-
 function host() {
+  addPlayer(me)
   peer.on('connection', function (conn) {
     //alert('Le joueur ' + conn.peer + ' a rejoint le salon')
     test = conn
@@ -10,12 +9,13 @@ function host() {
 
     console.log(conn)
     conn.on('data', (data) => {
+      console.log(data)
+      //processMsg(data)
       sendAll(data);
     })
     conn.on('open', () => {
       addConn(conn)
     })
-
   });
 
   peer.on('data', (data) => {
@@ -27,22 +27,22 @@ function host() {
 
 function addConn(conn) {
   conns.push(conn);
-  addPlayer(conn.peer)
+  addPlayer({ 'peerId': conn.peer, 'name': conn.peer })
 }
 
 function addPlayer(player) {
   players.push(player);
-  document.getElementById("players").innerHTML = players;
-  
-  sendAll(setContent("players", players))
+  setPlayers(players)
+
+  sendAll(setContent(me, "players", players))
 }
 
-function sendAll(string) {
+function sendAll(data) {
+  processMsg(data)
   conns.forEach((conn) => {
-    if (conn.peer != myId) {
-      conn.send(string)
-    }
+    //if (conn.peer != me.peerId) {
+    conn.send(data)
+    //}
   })
-  console.log(string)
 
 }
