@@ -1,0 +1,13 @@
+#chat{
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-y: scroll;
+}
+
+body{
+    transition: all .1s;
+}
+
+.wizz{
+    margin-left: 50px;
+}

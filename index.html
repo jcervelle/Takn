@@ -1,6 +1,9 @@
 <html>
 
-<head></head>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <title>MSN 2</title>
+</head>
 
 <body>
   <div>
@@ -21,8 +24,17 @@
     <div id="chat" style="border: 1px solid black; height: 200px; width: 200px;"></div>
   </div>
   <form onsubmit="return false">
-    <input type="text" id="chatInput">
-    <input type="submit" onclick="sendChatMessage()">
+    <div>
+      <input type="text" id="chatInput">
+      <input type="submit" onclick="sendChatMessage()" value="Envoyer">
+    </div>
+  </form>
+  <form onsubmit="return false">
+    <div>
+      <p>Changer de nom :</p>
+      <input type="text" id="renameInput">
+      <input type="submit" onclick="rename()" value="Se renomer">
+    </div>
   </form>
 
 

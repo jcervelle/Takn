@@ -16,6 +16,10 @@ function host() {
     conn.on('open', () => {
       addConn(conn)
     })
+    conn.on('disconnected', (conn) => {
+      console.log("logout")
+      sendAll(setContent(players.find(p => p.peerId == conn.peer), "logout", null))
+    })
   });
 
   peer.on('data', (data) => {
